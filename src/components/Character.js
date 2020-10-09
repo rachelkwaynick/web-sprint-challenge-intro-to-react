@@ -29,13 +29,14 @@ export default function Character (props) {
     const { character } = props;
 
     const setDetails = name => {
-        setActiveChar(name)
-        
+        if(activeChar === name){
+            setActiveChar(null)
+        }else{
+            setActiveChar(name)
+        }
     }
 
-    const closeDetails = () => {
-        setActiveChar(null)
-    }
+    
 
     return (
         <StyledCharacter
@@ -50,7 +51,6 @@ export default function Character (props) {
           activeChar && 
             <CharacterDetails 
                 character={character}
-                close={closeDetails}
             />
         }
         </StyledCharacter>
